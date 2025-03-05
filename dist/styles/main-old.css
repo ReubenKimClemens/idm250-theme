@@ -1,0 +1,584 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Base Header Styles (Mobile First) */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1000;
+}
+
+/* Logo */
+.header__logo .custom-logo {
+  max-height: 50px;
+  width: auto;
+}
+
+/* Navigation Menu - Hidden by Default */
+.menu {
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu li {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+}
+
+.menu li a:hover {
+  color: #0073e6;
+}
+
+/* Show menu when active */
+.menu.active {
+  display: flex;
+}
+
+/* Mobile Menu Button */
+.menu-toggle {
+  display: block;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 2rem;
+}
+
+/* Larger Screens: Display Menu Horizontally */
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .menu li {
+    margin: 0 1rem;
+  }
+}
+
+.footer {
+  background-color: var(--primary-color);
+  padding: 80px 20px;
+  text-align: center;
+  color: #ccc;
+  margin-top: 50px;
+}
+
+.footer__content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer .footer-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.footer .footer-menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-menu li {
+  display: inline-block;
+}
+
+.footer .footer-menu a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 5px 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer .footer-menu a:hover {
+  color: white;
+}
+
+.footer__text {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 20px;
+}
+
+/* General Layout */
+.main-content {
+  padding: 1.5rem;
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.6;
+  font-family: "Arial", sans-serif;
+}
+
+/* Add default spacing between all blocks */
+.main-content > * + * {
+  margin-top: 1rem;
+}
+
+/* Headings */
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+  font-family: "Georgia", serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.main-content h1 {
+  font-size: 2.5rem;
+}
+
+.main-content h2 {
+  font-size: 2rem;
+}
+
+.main-content h3 {
+  font-size: 1.75rem;
+}
+
+.main-content h4 {
+  font-size: 1.5rem;
+}
+
+.main-content h5 {
+  font-size: 1.25rem;
+}
+
+.main-content h6 {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Paragraphs */
+.main-content p {
+  margin-bottom: 1rem;
+}
+
+/* Lists */
+.main-content ul,
+.main-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.main-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* Blockquotes */
+.main-content blockquote {
+  border-left: 4px solid #0073aa;
+  padding: 1rem;
+  font-style: italic;
+  background: #f9f9f9;
+  margin: 1.5rem 0;
+}
+
+.main-content blockquote p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* Images */
+.main-content .wp-block-image {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.main-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Centered Captions */
+.main-content p.has-text-align-center {
+  font-style: italic;
+  color: #777;
+  margin-top: -0.5rem;
+}
+
+/* Links */
+.main-content a {
+  color: #0073aa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.main-content a:hover,
+.main-content a:focus {
+  color: #005577;
+  text-decoration: underline;
+}
+
+/* Featured Image */
+.featured-image {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.post-meta {
+  font-size: 0.875rem;
+  color: #666;
+  display: flex;
+}
+
+.author-box {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.author-box__image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.author-box__content {
+  margin-left: 20px;
+}
+
+.author-box__title {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.author-box__bio {
+  font-size: 1rem;
+  color: #333;
+}
+
+.single-row {
+  display: flex;
+  justify-content: space-between;
+}
+.single-row aside {
+  width: 30%;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Adjust height as needed */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project-item {
+  width: 32%;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.project-item:hover {
+  transform: translateY(-5px);
+}
+
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 15px;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 3px solid #eee;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.project-excerpt {
+  font-size: 1rem;
+  color: #555;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.search-field {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-submit {
+  padding: 0.5rem 1rem;
+  background-color: #0073aa;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-submit:hover {
+  background-color: #005177;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-3 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid-item {
+  width: 100%;
+}
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-home {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.blog-card {
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card__image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.blog-card__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+}
+
+.blog-card__content {
+  padding: 1.5rem;
+}
+
+.blog-card__meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.blog-card__date {
+  color: #9ca3af;
+}
+
+.blog-card__category {
+  padding: 0.3rem 0.8rem;
+  background-color: #f3f4f6;
+  border-radius: 9999px;
+  font-weight: 500;
+  color: #374151;
+  text-decoration: none;
+}
+
+.blog-card__category:hover {
+  background-color: #e5e7eb;
+}
+
+.blog-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  color: #111827;
+}
+
+.blog-card__excerpt {
+  margin-top: 1rem;
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 🏗️ Project Card Container */
+.project-card {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+/* 🖼️ Image with Rounded Corners */
+.project-card__image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.project-card__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* 🌒 Dark Overlay Effect */
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 30%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  border-radius: 16px;
+}
+
+.project-card__meta {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #e5e7eb;
+}
+
+.project-card__date {
+  color: #f3f4f6;
+}
+
+.project-card__tags {
+  font-weight: 500;
+  color: #d1d5db;
+}
+
+.project-card__title {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
