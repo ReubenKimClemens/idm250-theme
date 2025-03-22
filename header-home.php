@@ -30,6 +30,13 @@
         </a>
         <?php endif; ?>
     </div>
-    
-    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+    <?php if (has_post_thumbnail()) : ?>
+      <div class="front-featured-image">
+        <?php the_post_thumbnail(); ?>
+      </div>
+      <div class="home-excerpt">
+        <?php echo get_the_excerpt(); ?>
+      </div>
+    <?php endif; ?>
+    <button class="home-menu-toggle" aria-label="Toggle Menu">☰</button>
 </header>

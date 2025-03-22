@@ -1,11 +1,7 @@
 
 <?php get_header(); ?>
 <div class="wrapper">
-  <h1 class="page-header">
-    <?php echo get_the_title(); ?>
-    page
-  </h1>
-
+  <h1 class="page-header"><?php echo get_the_title(); ?></h1>
   <?php if (has_post_thumbnail()) : ?>
   <div class="featured-image">
     <?php the_post_thumbnail(); ?>

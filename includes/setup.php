@@ -8,6 +8,9 @@
  */
 add_theme_support('post-thumbnails');
 
+add_theme_support('responsive-embeds');
+
+
 /**
  * Enable excerpt support for pages.
  *
@@ -49,3 +52,29 @@ function theme_scripts_and_styles()
     );
 }
 add_action('wp_enqueue_scripts', 'theme_scripts_and_styles');
+
+
+function add_name_to_menu($items, $args) {
+    // Optional: Only target a specific menu location
+    if ($args->theme_location === 'primary') {
+        $your_name = 'John Doe'; // You can make this dynamic too
+        $items .= '<li class="menu-item your-name"><a href="#">' . esc_html($your_name) . '</a></li>';
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_items', 'add_name_to_menu', 10, 2);
+
+/**
+ * Register theme navigation menus.
+ *
+ * This function allows WordPress to manage custom menus from the admin panel.
+ * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
+ * @return void
+ */
+function register_theme_menus()
+{
+    register_nav_menus([
+        'primary-menu' => 'Primary Menu', // Main navigation menu
+    ]);
+}
+add_action('init', 'register_theme_menus');
