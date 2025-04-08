@@ -5,8 +5,8 @@ $query = new WP_Query([
 ]);
 ?>
 <?php if ($query->have_posts()) : ?>
-<section class="">
-  <h1>Portfolio</h1>
+<section>
+  <h1 class="front-page-header">Portfolio</h1>
   <div class="grid grid-1">
         <?php
     while ($query->have_posts()) : $query->the_post();        // For each post, render this component

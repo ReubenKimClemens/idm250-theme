@@ -26,7 +26,10 @@
  */
 ?>
 
-<?php get_header('home'); ?>
+<?php
+get_header();
+get_template_part('components/hero-home');
+?>
 <div class="wrapper">
   <?php get_template_part('components/latest-projects'); ?>
 </div>

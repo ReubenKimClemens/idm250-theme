@@ -11,7 +11,7 @@ body {
 
 header {
   min-height: 50px;
-  background: lightcyan;
+  background: var(--primary-color);
 }
 
 footer {
@@ -21,84 +21,57 @@ footer {
 /* ------------------- */
 
 
-/* Header and Home Header */
-.header {
-  height: 10rem;
+/* Home Hero Section */
+
+.home-hero {
+  height: 100vh;
+  width: 100%;
   background-color: var(--primary-color);
+  padding-top: 2rem;
+}
+
+.home-hero-content {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-content: space-between;
+  justify-self: center;
+  width: 70%;
 }
 
-.header__logo {
-  margin: 2.5rem;
-}
-
-.header__logo .custom-logo {
-  max-height: 4.5rem;
-  width: auto;
-}
-
-.home-header {
-  height: 100vh;
-  background-color: var(--primary-color);
-  display: flex;
-  flex-direction: column;
-}
-
-.home_logo {
-  margin: 4rem 0 0 6.5rem;
+.logo-and-excerpt {
+  width: 50%;
 }
 
 .home_logo .custom-logo {
-  max-height: 15rem;
-  width: auto;
-}
-
-.front-featured-image {
-  display: block;
-  position: absolute;
-  right: 15vw;
-  top: 7rem;
+  width: 100%;
+  height: auto;
 }
 
 .home-excerpt {
+  padding-top: .5rem;
   color: #FFF;
-  width: 22rem;
-  margin: 1rem 0 0 6.5rem;
 }
+
+.front-featured-image {
+  width: 40%;
+}
+
+.front-featured-image img {
+  width: 100%;
+  height: auto;
+}
+
 /* ------------------- */
 
-.home-menu-toggle {
-  position: absolute;
-  right: 30px;
-  top: 50px;
-  display: block;
-  cursor: pointer;
-  border: none;
-  font-size: 2rem;
-}
-
-@media (max-width: 980px) {
-  .front-featured-image {
-    right: 5vw;
-  }
-  .front-featured-image img {
-    width: 35vw;
-    height: auto;
-  }
-}
 @media (max-width: 816px) {
+  .logo-and-excerpt {
+    width: 100%;
+  }
   .front-featured-image {
     display: none;
   }
-  .home_logo {
-    margin: 4rem 0 0 0;
-    align-self: center;
-  }
-  .home-excerpt {
-    margin: 1rem 0 0 0;
-    align-self: center;
+  .home-hero {
+    height: 100%;
   }
 }
 
@@ -116,61 +89,24 @@ footer {
   font-weight: 800;
 }
 
-
-.menu.active {
-  display: flex;
-}
-
-.menu-toggle {
-  position: absolute;
-  right: 30px;
-  display: block;
-  cursor: pointer;
-  border: none;
-  font-size: 2rem;
-}
-
-@media (min-width: 900px) {
-  .menu-toggle {
-    display: none;
-  }
-  .nav {
-    padding-left: 10vw;
-    display: flex;
-  }
-  
-  .nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 4vw;
-  }
-  .nav ul li a {
-    text-decoration: none;
-  }
-  
-  .nav ul li {
-    position: relative;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-  
-  .nav ul li:hover {
-    text-decoration: underline;
-  }
-}
-
-
 .wrapper {
-  max-width: 700px;  /* Keeps content readable */
+  max-width: 800px;  /* Keeps content readable */
   margin: 0 auto; /* Centers content */
   padding: 40px;
   width: 90%; /* Makes sure it scales down on smaller screens */
 }
+
+.resume-wrapper {
+  max-width: 900px;  /* Keeps content readable */
+  margin: 0 auto; /* Centers content */
+  padding: 40px;
+  width: 90%; /* Makes sure it scales down on smaller screens */
+}
+
+.resume-wrapper h1, h2, h3, h4, h5, h6, p {
+  margin: 0 0 .5rem 0;
+}
+
 a {
   color: var(--primary);
 }
@@ -353,4 +289,63 @@ td {
 .about-picture-center {
   display: block;
   margin: 0 auto;
+}
+
+.front-page-header {
+  text-align: center;
+}
+
+/* NAVBAR CSS */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  justify-self: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  width: 90%;
+}
+
+.nav-left .logo img {
+  width: 80px;
+  height: 55px;
+  padding-left: 20px;
+}
+
+@media (min-width: 740px) {
+
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 4vw;
+  }
+  .navbar ul li a {
+    text-decoration: none;
+  }
+  
+  .navbar ul li {
+    position: relative;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  .navbar ul li:hover {
+    text-decoration: underline;
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+  }
+  .nav-left .logo img {
+    width: 80px;
+    height: 55px;
+    padding-left: 20px;
+}
 }
