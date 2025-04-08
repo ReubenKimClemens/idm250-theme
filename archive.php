@@ -45,19 +45,15 @@
 
 <?php get_header(); ?>
 <div class="wrapper">
-  <div class="archive-header">
-    <h1><?php the_archive_title(); ?></h1>
-    <?php the_archive_description(); ?>
-  </div>
 
   <?php if (have_posts()) : ?>
   <h1><?php the_archive_title(); ?></h1>
 
-  <ul class="grid grid-3">
+  <ul class="grid grid-2">
     <?php
   while (have_posts()) : the_post(); ?>
     <div class="grid-item">
-      <?php get_template_part('components/blog-card'); ?>
+      <?php get_template_part('components/listing-page-project-card'); ?>
     </div>
 
     <?php endwhile; ?>

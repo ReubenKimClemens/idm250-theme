@@ -6,8 +6,8 @@ $query = new WP_Query([
 ?>
 <?php if ($query->have_posts()) : ?>
 <section class="">
-  <h2>Most Recent Work</h2>
-  <div class="grid grid-3">
+  <h1>Portfolio</h1>
+  <div class="grid grid-1">
         <?php
     while ($query->have_posts()) : $query->the_post();        // For each post, render this component
         get_template_part('components/project-card');

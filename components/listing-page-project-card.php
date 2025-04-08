@@ -2,7 +2,6 @@
     <a href="<?php the_permalink(); ?>" class="project-card__link">
 
         <div class="project-card__content">
-            <h3 class="project-card__team-status">Team Project</h3>
             <h2 class="project-card__title"><?php the_title(); ?></h2>
         </div>
         <?php if (has_post_thumbnail()) : ?>
@@ -11,7 +10,6 @@
         </div>
         <?php endif; ?>
         <div class="project-card__content">
-            <p class="project-card__description"><?php echo get_the_excerpt(); ?></p>
             <p><?php echo get_the_term_list(get_the_ID(), // 204
             'project-categories', // taxonomy name
             '', // before

@@ -28,7 +28,6 @@
 
 <?php get_header('home'); ?>
 <div class="wrapper">
-  <?php get_template_part('components/featured-project'); ?>
   <?php get_template_part('components/latest-projects'); ?>
 </div>
 <?php get_footer(); ?>

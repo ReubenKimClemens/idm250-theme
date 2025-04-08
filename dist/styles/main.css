@@ -1,5 +1,9 @@
+/* General css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 body {
   min-height: 100vh;
+  font-family: "Inter", sans-serif;
   margin: 0;
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -14,7 +18,10 @@ footer {
   min-height: 50px;
   background: PapayaWhip;
 }
+/* ------------------- */
 
+
+/* Header and Home Header */
 .header {
   height: 10rem;
   background-color: var(--primary-color);
@@ -55,6 +62,13 @@ footer {
   top: 7rem;
 }
 
+.home-excerpt {
+  color: #FFF;
+  width: 22rem;
+  margin: 1rem 0 0 6.5rem;
+}
+/* ------------------- */
+
 .home-menu-toggle {
   position: absolute;
   right: 30px;
@@ -63,12 +77,6 @@ footer {
   cursor: pointer;
   border: none;
   font-size: 2rem;
-}
-
-.home-excerpt {
-  color: #FFF;
-  width: 22rem;
-  margin: 1rem 0 0 6.5rem;
 }
 
 @media (max-width: 980px) {
@@ -225,33 +233,22 @@ td {
   margin: 0 0 2rem 0;
 }
 
-.featured-project-card {
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.3s;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  margin: 0 0 5rem 0;
-}
-
-.featured-project-card:hover {
-  transform: translateY(-5px);
-}
-
-.featured-project-card__image-wrapper img {
-  height: 60vh;
-  width: 100%;
-  object-fit: cover;
-}
-
 .project-card {
   overflow: hidden;
   position: relative;
   transition: transform 0.3s;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 2rem;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
+}
+
+.project-card__content {
+  text-align: left;
+  margin: 0 auto;
+  width: 70%;
 }
 
 .project-card__image-wrapper {
@@ -267,10 +264,23 @@ td {
 
 .project-card__title {
   font-weight: 600;
-  margin-top: 1rem;
-  text-align: center;
   color: var(--primary-text);
 }
+
+.project-card__team-status {
+  font-style: italic;
+  color: var(--primary-text);
+}
+
+.project-card__description {
+  margin-top: 1rem;
+  color: var(--primary-text);
+}
+
+.project-card__tags-text {
+  color: var(--primary-text);
+}
+
 .project-card__link {
   text-decoration: none;
 }
@@ -278,7 +288,7 @@ td {
 
 .grid {
   display: grid;
-  gap: 20px;
+  gap: 60px;
 }
 
 .grid-3 {

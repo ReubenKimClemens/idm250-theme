@@ -4,6 +4,7 @@
  */
 
 get_header(); ?>
+
 <div class="wrapper">
 <h1 class="page-header">Projects</h1>
 <div class="grid grid-3">
@@ -18,7 +19,7 @@ $query = new WP_Query($args);
 
 if ($query->have_posts()) :
     while ($query->have_posts()) : $query->the_post();
-        get_template_part('components/project-card');
+        get_template_part('components/listing-page-project-card');
     endwhile;
 
     wp_reset_postdata();
