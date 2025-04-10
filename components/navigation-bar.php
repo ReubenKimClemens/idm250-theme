@@ -4,6 +4,7 @@
         <div class="logo">
             <?php the_custom_logo(); ?>
         </div>
+        <h1>Reuben Clemens</h1>
     </div>
     <?php endif; ?>
     <div class="nav-menu">

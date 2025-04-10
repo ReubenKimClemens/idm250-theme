@@ -5,9 +5,9 @@
 
 get_header(); ?>
 
-<div class="wrapper">
+<div class="wrapper listing">
 <h1 class="page-header">Projects</h1>
-<div class="grid grid-3">
+<div class="grid grid-2">
   <?php
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args = [

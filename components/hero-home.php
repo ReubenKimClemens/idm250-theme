@@ -7,7 +7,14 @@
             </div>
             <?php endif; ?>
             <div class="home-excerpt">
-                <?php echo get_the_excerpt(); ?>
+                <?php
+                $front_page_id = get_option('page_on_front'); // Gets the ID of the static front page
+                $menu_paragraph = get_post_meta($front_page_id, 'about_paragraph', true);
+                
+                if ($menu_paragraph) {
+                    echo '<p class="menu-paragraph">' . $menu_paragraph . '</p>';
+                }
+                ?>
             </div>
         </div>
         <?php if (has_post_thumbnail()) : ?>

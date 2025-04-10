@@ -45,10 +45,8 @@
 
 <?php get_header(); ?>
 <div class="wrapper">
-
   <?php if (have_posts()) : ?>
   <h1><?php the_archive_title(); ?></h1>
-
   <ul class="grid grid-2">
     <?php
   while (have_posts()) : the_post(); ?>

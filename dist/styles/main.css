@@ -24,10 +24,10 @@ footer {
 /* Home Hero Section */
 
 .home-hero {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: var(--primary-color);
-  padding-top: 2rem;
+  padding: 2rem 0 1rem 0;
 }
 
 .home-hero-content {
@@ -48,7 +48,7 @@ footer {
 }
 
 .home-excerpt {
-  padding-top: .5rem;
+  padding-top: 2rem;
   color: #FFF;
 }
 
@@ -96,6 +96,10 @@ footer {
   width: 90%; /* Makes sure it scales down on smaller screens */
 }
 
+.listing {
+  max-width: 1000px;
+}
+
 .resume-wrapper {
   max-width: 900px;  /* Keeps content readable */
   margin: 0 auto; /* Centers content */
@@ -103,8 +107,19 @@ footer {
   width: 90%; /* Makes sure it scales down on smaller screens */
 }
 
-.resume-wrapper h1, h2, h3, h4, h5, h6, p {
-  margin: 0 0 .5rem 0;
+.resume-wrapper h1,
+.resume-wrapper h2,
+.resume-wrapper h3,
+.resume-wrapper h4,
+.resume-wrapper h5,
+.resume-wrapper h6,
+.resume-wrapper p {
+  margin: 0 0 0.5rem 0;
+}
+
+.align-to-center {
+  justify-self: center;
+  margin-bottom: 1.5rem;
 }
 
 a {
@@ -227,13 +242,13 @@ td {
   gap: 60px;
 }
 
-.grid-3 {
+.grid-2 {
   grid-template-columns: 1fr;
 }
 
 @media (min-width: 768px) {
-  .grid-3 {
-    grid-template-columns: repeat(3, 1fr);
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

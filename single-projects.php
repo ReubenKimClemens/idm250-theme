@@ -1,8 +1,18 @@
 <?php 
 get_header(); 
+
+
+$args = array(
+    'post_type' => 'projects', // or 'project', 'portfolio', etc.
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'project_type',
+            'field'    => 'slug',
+            'terms'    => 'solo', // or 'team'
+        ),
+    ),
+);
 ?>
-
-
     
 <div class="wrapper">
     <div class="project-info">

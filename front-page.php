@@ -25,9 +25,9 @@
  * @package YourThemeName
  */
 ?>
-
 <?php
 get_header();
+
 get_template_part('components/hero-home');
 ?>
 <div class="wrapper">

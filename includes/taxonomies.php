@@ -8,6 +8,7 @@
  * @link https://developer.wordpress.org/reference/functions/register_taxonomy/
  * @return void
  */
+
 function register_custom_project_category()
 {
     $taxonomy_name = 'project-categories'; // Taxonomy slug (lowercase, no spaces)
@@ -39,3 +40,18 @@ function register_custom_project_category()
 }
 
 add_action('init', 'register_custom_project_category');
+
+function register_project_type_taxonomy() {
+    register_taxonomy(
+        'project_type',
+        'projects', // or 'post', 'page', or your custom post type
+        array(
+            'label' => 'Project Type',
+            'hierarchical' => false,
+            'public' => true,
+            'show_ui' => true,
+            'show_in_rest' => true,
+        )
+    );
+}
+add_action('init', 'register_project_type_taxonomy');

@@ -95,6 +95,17 @@ function get_theme_menu($menu_name)
     return $menu_items;
 }
 
+function add_paragraph_to_menu($items, $args) {
+    if ($args->theme_location === 'primary') {
+        $items .= '<li class="menu-paragraph" style="padding: 10px 15px;">'
+                . 'This is a custom paragraph placed in the menu.'
+                . '</li>';
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_items', 'add_paragraph_to_menu', 10, 2);
+
+
 
 /**
  * Register custom post types for the theme.
@@ -137,9 +148,60 @@ function register_custom_post_types()
 
 add_action('init', 'register_custom_post_types');
 
+
+function add_project_type_terms() {
+    wp_insert_term('Solo', 'project_type');
+    wp_insert_term('Team', 'project_type');
+}
+add_action('init', 'add_project_type_terms');
+
+function add_project_paragraph_meta_box() {
+    add_meta_box(
+        'project_paragraph_box',
+        'Project Paragraph',
+        'render_project_paragraph_box',
+        'projects', // your custom post type
+        'normal',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'add_project_paragraph_meta_box');
+
+function render_project_paragraph_box($post) {
+    // Retrieve current value
+    $value = get_post_meta($post->ID, '_project_paragraph', true);
+    // Security nonce
+    wp_nonce_field('save_project_paragraph', 'project_paragraph_nonce');
+
+    echo '<textarea style="width:100%;height:150px;" name="project_paragraph_field">' . esc_textarea($value) . '</textarea>';
+}
+
+function save_project_paragraph_meta($post_id) {
+    // Check nonce
+    if (!isset($_POST['project_paragraph_nonce']) ||
+        !wp_verify_nonce($_POST['project_paragraph_nonce'], 'save_project_paragraph')) {
+        return;
+    }
+
+    // Check autosave
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+    // Check user permission
+    if (!current_user_can('edit_post', $post_id)) return;
+
+    // Save field
+    if (isset($_POST['project_paragraph_field'])) {
+        update_post_meta($post_id, '_project_paragraph', sanitize_textarea_field($_POST['project_paragraph_field']));
+    }
+}
+add_action('save_post', 'save_project_paragraph_meta');
+
+
+
 /**
  * 5. Register Custom Taxonomies
  * ------------------------------
  * Defines custom taxonomies (categories/tags for CPTs).
  */
 require get_template_directory() . '/includes/taxonomies.php';
+
