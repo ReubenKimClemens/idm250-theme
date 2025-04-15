@@ -1,12 +1,24 @@
 /* General css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 body {
   min-height: 100vh;
-  font-family: "Inter", sans-serif;
   margin: 0;
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Inter", sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+p, a, li, ul {
+  font-family: "Source Code Pro", monospace;
+  font-weight: bold;
+  line-height: 150%; /* 1.6875rem */
+
 }
 
 header {
@@ -97,11 +109,14 @@ footer {
 }
 
 .listing {
-  max-width: 1000px;
+  max-width: 1200px;
+  margin: 0 auto; /* Centers content */
+  padding: 40px;
+  width: 85%; /* Makes sure it scales down on smaller screens */
 }
 
 .resume-wrapper {
-  max-width: 900px;  /* Keeps content readable */
+  max-width: 950px;  /* Keeps content readable */
   margin: 0 auto; /* Centers content */
   padding: 40px;
   width: 90%; /* Makes sure it scales down on smaller screens */
@@ -178,28 +193,31 @@ td {
   background-color: #656a70;
 }
 
-.featured-project-header {
-  text-align: center;
-  font-size: 3rem;
-  margin: 0 0 2rem 0;
-}
-
 .project-card {
   overflow: hidden;
   position: relative;
-  transition: transform 0.3s;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   border-radius: 2rem;
+  transition: 0.5s;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 4px 40px rgba(0, 0, 0, .8);
+  transform: scale(0.96);
+}
+
+.project-card__team-status {
+  margin-bottom: .25rem;
+}
+
+.project-card__title {
+  margin-top: .5rem;
 }
 
 .project-card__content {
   text-align: left;
   margin: 0 auto;
-  width: 70%;
+  width: 80%;
 }
 
 .project-card__image-wrapper {
@@ -254,6 +272,7 @@ td {
 
 .page-header {
   text-align: center;
+  font-size: 2.5rem;
 }
 
 .project-info {
@@ -308,6 +327,8 @@ td {
 
 .front-page-header {
   text-align: center;
+  font-size: 3rem;
+  margin: 3rem 0 1rem 0;
 }
 
 /* NAVBAR CSS */
@@ -322,8 +343,8 @@ td {
 }
 
 .nav-left .logo img {
-  width: 80px;
-  height: 55px;
+  width: 100px;
+  height: auto;
   padding-left: 20px;
 }
 
@@ -343,24 +364,49 @@ td {
   .navbar ul li {
     position: relative;
     color: white;
-    font-family: Arial, sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-family: "Source Code Pro", monospace;
+    font-size: 2.25rem;
     text-transform: uppercase;
     cursor: pointer;
   }
-  
+  .nav-animation {
+    position: absolute;
+    top: 0;
+    width: 0;
+    left: -10%;
+    height: 54px;
+    background: rgba(255, 255, 255, .7);
+    filter: blur(20px);
+    transition: 0.45s;
+  }
+  .navbar ul li:hover .nav-animation {
+    width: 120%;
+  }
   .navbar ul li:hover {
-    text-decoration: underline;
+    text-shadow: black 1px 0 5px;
   }
 
   .nav-left {
     display: flex;
     align-items: center;
   }
-  .nav-left .logo img {
-    width: 80px;
-    height: 55px;
-    padding-left: 20px;
+
+  .nav-menu {
+    margin-right: 5%;
+  }
 }
+
+.about-paragraph-section {
+  width: 75%;
+  margin: 0 auto;
+}
+.about-paragraph-section h2, .about-paragraph-section h1 {
+  margin: 0;
+}
+.about-paragraph-section h1 {
+  font-size: 3rem;
+}
+.about-me-title {
+  font-size: 2.5rem;
+  text-align: center;
 }

@@ -7,7 +7,7 @@ $query = new WP_Query([
 <?php if ($query->have_posts()) : ?>
 <section>
   <h1 class="front-page-header">Portfolio</h1>
-  <div class="grid grid-1">
+  <div class="grid grid-2">
         <?php
     while ($query->have_posts()) : $query->the_post();        // For each post, render this component
         get_template_part('components/project-card');
