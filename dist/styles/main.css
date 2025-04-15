@@ -371,12 +371,11 @@ td {
   }
   .nav-animation {
     position: absolute;
-    top: 0;
+    bottom: 0;
     width: 0;
     left: -10%;
-    height: 54px;
-    background: rgba(255, 255, 255, .7);
-    filter: blur(20px);
+    height: 5px;
+    background: white;
     transition: 0.45s;
   }
   .navbar ul li:hover .nav-animation {
