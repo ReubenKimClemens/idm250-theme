@@ -6,7 +6,6 @@
 get_header(); ?>
 
 <div class="wrapper listing">
-<h1 class="page-header">Projects</h1>
 <div class="grid grid-2">
   <?php
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -19,7 +18,7 @@ $query = new WP_Query($args);
 
 if ($query->have_posts()) :
     while ($query->have_posts()) : $query->the_post();
-        get_template_part('components/listing-page-project-card');
+        get_template_part('components/project-card');
     endwhile;
 
     wp_reset_postdata();

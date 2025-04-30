@@ -136,7 +136,7 @@ function register_custom_post_types()
         'public' => true,             // Makes it accessible on the front and back end
         'has_archive' => true,             // Enables an archive page
         'rewrite' => ['slug' => 'projects'], // URL slug
-        'supports' => ['title', 'editor', 'thumbnail', 'excerpt'], // Enabled post features
+        'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'], // Enabled post features
         'menu_position' => 5,                // Position in WP admin menu
         'menu_icon' => 'dashicons-portfolio', // Optional: Custom icon for the post type
         'show_in_rest' => true,             // Enables Gutenberg support
@@ -154,48 +154,6 @@ function add_project_type_terms() {
     wp_insert_term('Team', 'project_type');
 }
 add_action('init', 'add_project_type_terms');
-
-function add_project_paragraph_meta_box() {
-    add_meta_box(
-        'project_paragraph_box',
-        'Project Paragraph',
-        'render_project_paragraph_box',
-        'projects', // your custom post type
-        'normal',
-        'default'
-    );
-}
-add_action('add_meta_boxes', 'add_project_paragraph_meta_box');
-
-function render_project_paragraph_box($post) {
-    // Retrieve current value
-    $value = get_post_meta($post->ID, '_project_paragraph', true);
-    // Security nonce
-    wp_nonce_field('save_project_paragraph', 'project_paragraph_nonce');
-
-    echo '<textarea style="width:100%;height:150px;" name="project_paragraph_field">' . esc_textarea($value) . '</textarea>';
-}
-
-function save_project_paragraph_meta($post_id) {
-    // Check nonce
-    if (!isset($_POST['project_paragraph_nonce']) ||
-        !wp_verify_nonce($_POST['project_paragraph_nonce'], 'save_project_paragraph')) {
-        return;
-    }
-
-    // Check autosave
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-
-    // Check user permission
-    if (!current_user_can('edit_post', $post_id)) return;
-
-    // Save field
-    if (isset($_POST['project_paragraph_field'])) {
-        update_post_meta($post_id, '_project_paragraph', sanitize_textarea_field($_POST['project_paragraph_field']));
-    }
-}
-add_action('save_post', 'save_project_paragraph_meta');
-
 
 
 /**

@@ -8,7 +8,7 @@
 
                 if ($terms && !is_wp_error($terms)) {
                     foreach ($terms as $term) {
-                        echo 'Project Type: ' . esc_html($term->name);
+                        echo 'Project Type: <span class="project-type">'.esc_html($term->name).'</span>';
                     }
                 } else {
                     echo 'No project type assigned.';
@@ -38,7 +38,22 @@
             ', ', // separator
             '' // after
             ); ?>
-        </p>
+            </p>
+            <div class="project_links">
+                <a href="<?php the_permalink(); ?>">Case Study</a>
+
+                <?php 
+                $github = get_post_meta(get_the_ID(), 'github_link', true);
+                $liveSite = get_post_meta(get_the_ID(), 'live_site_link', true);
+
+                if (!empty($github)) {
+                    echo "<a href='$github'>Github</a>";
+                }
+                if (!empty($liveSite)) {
+                    echo "<a href='$liveSite'>Live Site</a>";
+                }
+                ?>
+            </div>
         </div>
     </a>
 </article>

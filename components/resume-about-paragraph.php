@@ -6,13 +6,16 @@ $position = get_post_meta($front_page_id, 'position', true);
 ?>
 
 <?php if ($menu_paragraph): ?>
-    <div class='about-paragraph-section'>
+    <div class='resume-about-section'>
         <?php if ($about_name): ?>
-            <h1>Hi! I'm <?php echo $about_name; ?></h1>
+            <h2><?php echo $about_name; ?></h2>
         <?php endif; ?>
         <?php if ($position): ?>
             <h3><?php echo $position; ?></h3>
         <?php endif; ?>
         <p class="menu-paragraph"><?php echo $menu_paragraph; ?></p>
+    </div>
+    <div class="links">
+        <p>Website: <a href="reubenkimclemens.com">reubenkimclemens.com</a></p>
     </div>
 <?php endif; ?>
