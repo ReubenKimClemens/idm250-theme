@@ -14,7 +14,7 @@ $args = array(
 );
 ?>
     
-<div class="wrapper">
+<div class="case-study-wrapper">
     <div class="project-info">
         <h1><?php echo get_the_title(); ?></h1>
         <p>Published on <?php the_date(); ?> in <?php echo get_the_term_list(get_the_ID(), // 204

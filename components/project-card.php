@@ -8,7 +8,7 @@
 
                 if ($terms && !is_wp_error($terms)) {
                     foreach ($terms as $term) {
-                        echo 'Project Type: <span class="project-type">'.esc_html($term->name).'</span>';
+                        echo esc_html($term->name).' Project';
                     }
                 } else {
                     echo 'No project type assigned.';
